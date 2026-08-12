@@ -1,0 +1,1 @@
+export class GraphService { async linkIdentity(input:{userId:string;deviceId?:string;fingerprint?:string}){ return {connected:true,...input}; } async relatedIdentities(userId:string){ return {userId,nodes:[],edges:[]}; } }

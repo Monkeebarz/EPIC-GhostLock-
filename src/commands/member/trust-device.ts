@@ -1,0 +1,1 @@
+import { SlashCommandBuilder } from 'discord.js'; import type { Command } from '../types'; export const command:Command={data:new SlashCommandBuilder().setName('trust-device').setDescription('Mark this device as trusted'),async execute(i){await i.reply({content:'This device has been submitted for trust confirmation.',ephemeral:true});}};

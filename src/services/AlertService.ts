@@ -1,0 +1,2 @@
+import { TextChannel } from 'discord.js'; import { decisionEmbed } from '../utils/embed-builder'; import type { Decision } from './RiskEngine';
+export class AlertService { constructor(private readonly client:any) {} async sendDecision(channelId:string,decision:Decision,subject:string,caseId?:string){ const channel=await this.client.channels.fetch(channelId); if(!(channel instanceof TextChannel)) throw new Error('Alert channel is not a text channel'); return channel.send({embeds:[decisionEmbed(decision,subject,caseId)]}); } }

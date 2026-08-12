@@ -1,0 +1,1 @@
+import type { Client } from 'discord.js'; export function registerGuildMemberAdd(client:Client){client.on('guildMemberAdd',member=>{console.log(JSON.stringify({event:'guildMemberAdd',guildId:member.guild.id,userId:member.id}));});}

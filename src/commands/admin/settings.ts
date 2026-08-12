@@ -1,0 +1,1 @@
+import { SlashCommandBuilder } from 'discord.js'; import type { Command } from '../types'; export const command:Command={data:new SlashCommandBuilder().setName('ghostlock-settings').setDescription('View Ghost Lock settings'),async execute(i){await i.reply({content:'Settings are managed per guild. Configure database-backed roles and alert channels.',ephemeral:true});}};

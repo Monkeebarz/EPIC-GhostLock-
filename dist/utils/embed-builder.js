@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.decisionEmbed = decisionEmbed;
+exports.caseEmbed = caseEmbed;
+const discord_js_1 = require("discord.js");
+const colors = { 'Auto-Block': 0xed4245, Quarantine: 0xfee75c, 'Allow + Log': 0x57f287 };
+function decisionEmbed(decision, subject, caseId) { const bar = decision.outcome === 'Auto-Block' ? '🟥' : decision.outcome === 'Quarantine' ? '🟨' : '🟩'; return new discord_js_1.EmbedBuilder().setColor(colors[decision.outcome]).setTitle(`${bar} GHOST LOCK DECISION`).setDescription(`**${decision.outcome}**\nRisk score: **${decision.score}/100**\nSeverity: **${decision.severity}**`).addFields({ name: 'Subject', value: subject, inline: true }, { name: 'Reason codes', value: decision.reasons.length ? decision.reasons.map(r => `[1;31m${r.code}[0m · +${r.points} · ${r.detail}`).join('\n') : 'No elevated signals', inline: false }, { name: 'Signal breakdown', value: Object.entries(decision.breakdown).map(([k, v]) => `**${k}**: ${v}`).join(' · ') || 'None', inline: false }).setFooter({ text: caseId ? `Case ${caseId}` : 'EPIC Ghost Lock · decision logged' }).setTimestamp(); }
+function caseEmbed(input) { return new discord_js_1.EmbedBuilder().setColor(colors[input.outcome] ?? 0x5865f2).setTitle(`GHOST LOCK CASE · ${input.id}`).addFields({ name: 'User', value: input.user, inline: true }, { name: 'Status', value: input.status, inline: true }, { name: 'Decision', value: `${input.outcome} · ${input.score}/100 · ${input.severity}`, inline: false }, { name: 'Reasons', value: input.reasons.join('\n') || 'None' }).setTimestamp(); }

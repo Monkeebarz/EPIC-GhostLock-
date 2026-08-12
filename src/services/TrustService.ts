@@ -1,0 +1,1 @@
+export class TrustService { async addTrustedDevice(input:{guildId:string;userId:string;deviceId:string}){ return {...input,trustScore:100}; } async ageTrust(current:number,days:number){ return Math.max(0,Math.round(current-Math.max(0,days)*2)); } }

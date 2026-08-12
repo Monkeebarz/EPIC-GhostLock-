@@ -1,0 +1,1 @@
+import { SlashCommandBuilder } from 'discord.js'; import type { Command } from '../types'; export const command:Command={data:new SlashCommandBuilder().setName('verify').setDescription('Start EPIC Ghost Lock verification'),async execute(i){await i.reply({content:'Verification started. Follow the instructions sent by EPIC Ghost Lock.',ephemeral:true});}};

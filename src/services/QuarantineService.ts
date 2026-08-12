@@ -1,0 +1,1 @@
+export class QuarantineService { async quarantine(member:any,roleId?:string){ if(roleId) await member.roles.add(roleId); return {userId:member.id,status:'quarantined'}; } async release(member:any,roleId?:string){ if(roleId) await member.roles.remove(roleId); return {userId:member.id,status:'released'}; } }

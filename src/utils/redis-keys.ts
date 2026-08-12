@@ -1,0 +1,1 @@
+export const redisKeys = { joinVelocity: (guildId: string) => `ghostlock:velocity:join:${guildId}`, userLock: (guildId: string, userId: string) => `ghostlock:lock:${guildId}:${userId}`, graph: (userId: string) => `ghostlock:graph:${userId}` };

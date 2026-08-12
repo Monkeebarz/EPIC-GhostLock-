@@ -1,0 +1,1 @@
+export class VerificationService { constructor(private readonly db:any) {} async start(guildId:string,discordUserId:string){ return {guildId,discordUserId,status:'pending',challenge:crypto.randomUUID(),expiresAt:new Date(Date.now()+15*60_000)}; } async complete(sessionId:string){ return {sessionId,status:'verified'}; } }
