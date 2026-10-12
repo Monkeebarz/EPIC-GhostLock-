@@ -73,6 +73,7 @@ const helpCommand: GhostLockCommand = {
             '`/ghostlock check-user [user]` — Run risk scan on any member',
             '`/ghostlock case [id]` — View full case with timeline',
             '`/ghostlock allow-claim [user]` — Clear a quarantined user',
+            '`/purge [amount]` — Delete 1–100 recent messages (Manage Messages required; messages over 14 days old are skipped)',
           ].join('\n'),
           inline: false,
         },

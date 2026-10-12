@@ -32,14 +32,32 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadCommands = loadCommands;
 const verify = __importStar(require("./member/verify"));
 const trustDevice = __importStar(require("./member/trust-device"));
+const help_1 = __importDefault(require("./member/help"));
 const checkUser = __importStar(require("./mod/check-user"));
+const purge = __importStar(require("./mod/purge"));
 const caseCommand = __importStar(require("./mod/case"));
 const allowClaim = __importStar(require("./mod/allow-claim"));
 const settings = __importStar(require("./admin/settings"));
 const trustAdd = __importStar(require("./admin/trust-add"));
 const watchlist = __importStar(require("./admin/watchlist"));
-function loadCommands() { return [verify.command, trustDevice.command, checkUser.command, caseCommand.command, allowClaim.command, settings.command, trustAdd.command, watchlist.command]; }
+function loadCommands() {
+    return [
+        verify.command,
+        trustDevice.command,
+        help_1.default,
+        checkUser.command,
+        purge.command,
+        caseCommand.command,
+        allowClaim.command,
+        settings.command,
+        trustAdd.command,
+        watchlist.command,
+    ];
+}
